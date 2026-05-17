@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Hartwell & Associates</title>
+
+  <!-- ============================================================
+    GTM CONTAINER SCRIPT — PASTE YOUR GTM HEAD SNIPPET BELOW
+  ============================================================ -->
+  <!-- Google Tag Manager -->
+  <!-- (paste GTM <script> snippet here) -->
+  <!-- End Google Tag Manager -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1a2535;
+      --navy-mid:   #243244;
+      --slate:      #4a5568;
+      --gold:       #b8975a;
+      --gold-light: #d4b07a;
+      --cream:      #f7f4ef;
+      --off-white:  #fdfcfa;
+      --border:     #ddd6c8;
+      --muted:      #8a96a3;
+      --error:      #9b4444;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', 'Helvetica Neue', sans-serif;
+
+      --radius: 2px;
+      --transition: 220ms ease;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      background-color: var(--cream);
+      color: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Header / Nav ───────────────────────────────────────── */
+    header {
+      background-color: var(--navy);
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.35rem;
+      color: var(--off-white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(253, 252, 250, 0.65);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    nav a:hover,
+    nav a.active { color: var(--gold); }
+
+    /* ── Hero Strip ─────────────────────────────────────────── */
+    .hero-strip {
+      background-color: var(--navy-mid);
+      padding: 64px 48px 56px;
+      text-align: center;
+      border-bottom: 1px solid rgba(184, 151, 90, 0.25);
+    }
+
+    .hero-strip .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .hero-strip h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--off-white);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero-strip h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-strip p {
+      font-size: 0.9rem;
+      color: rgba(253, 252, 250, 0.55);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── Main Layout ────────────────────────────────────────── */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 520px 1fr;
+      gap: 0;
+      padding: 72px 24px 96px;
+      align-items: start;
+    }
+
+    /* ── Sidebar Info ───────────────────────────────────────── */
+    .sidebar {
+      grid-column: 1;
+      padding-right: 48px;
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-end;
+    }
+
+    .info-block {
+      max-width: 220px;
+      text-align: right;
+      border-right: 1px solid var(--gold);
+      padding-right: 24px;
+    }
+
+    .info-block h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .info-block p {
+      font-size: 0.82rem;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    .info-block a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .info-block a:hover { color: var(--navy); }
+
+    /* ── Form Card ──────────────────────────────────────────── */
+    .form-card {
+      grid-column: 2;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      padding: 52px 48px 56px;
+      position: relative;
+    }
+
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 60%, var(--gold-light) 100%);
+    }
+
+    .form-header {
+      margin-bottom: 36px;
+    }
+
+    .form-header .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 10px;
+      margin-bottom: 14px;
+    }
+
+    .form-header h2 {
+      font-family: var(--serif);
+      font-size: 1.85rem;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* ── Form Elements ──────────────────────────────────────── */
+    form { display: flex; flex-direction: column; gap: 0; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .form-group:last-of-type { margin-bottom: 0; }
+
+    label {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 8px;
+    }
+
+    label .req {
+      color: var(--gold);
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 13px 16px;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--navy);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input::placeholder { color: var(--muted); font-style: italic; }
+
+    input:focus,
+    select:focus {
+      border-color: var(--navy);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(26, 37, 53, 0.06);
+    }
+
+    .select-wrap {
+      position: relative;
+    }
+
+    .select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-right: 1.5px solid var(--slate);
+      border-bottom: 1.5px solid var(--slate);
+      transform: translateY(-65%) rotate(45deg);
+      pointer-events: none;
+    }
+
+    select { cursor: pointer; padding-right: 40px; }
+    select option[value=""] { color: var(--muted); }
+
+    /* ── Submit Button ──────────────────────────────────────── */
+    .submit-wrap {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn-submit {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 15px 36px;
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+    }
+
+    .privacy-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Divider Rule ───────────────────────────────────────── */
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(253, 252, 250, 0.35);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      main {
+        grid-template-columns: 1fr;
+        padding: 56px 24px 80px;
+      }
+      .sidebar { display: none; }
+      .form-card {
+        grid-column: 1;
+        max-width: 540px;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 0 24px; }
+      nav { display: none; }
+      .hero-strip { padding: 48px 24px 40px; }
+      .form-card { padding: 36px 28px 40px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+    GTM NOSCRIPT — PASTE YOUR GTM NOSCRIPT SNIPPET BELOW
+  ============================================================ -->
+  <!-- Google Tag Manager (noscript) -->
+  <!-- (paste GTM <noscript> snippet here) -->
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ── Header ──────────────────────────────────────────────── -->
+  <header>
+    <a href="contact.html" class="logo">Hartwell <span>&</span> Associates</a>
+    <nav>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Insights</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ── Hero Strip ──────────────────────────────────────────── -->
+  <div class="hero-strip">
+    <p class="eyebrow">Begin the Conversation</p>
+    <h1>Speak with Our <em>Advisory Team</em></h1>
+    <p>Complete the form below and a senior consultant will respond within one business day.</p>
+  </div>
+
+  <!-- ── Main Content ────────────────────────────────────────── -->
+  <main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="info-block">
+        <h3>Office Hours</h3>
+        <p>Monday – Friday<br />9:00 AM – 6:00 PM EST</p>
+      </div>
+      <div class="info-block">
+        <h3>Direct Line</h3>
+        <p><a href="tel:+12125550100">+1 (212) 555-0100</a></p>
+      </div>
+      <div class="info-block">
+        <h3>Correspondence</h3>
+        <p><a href="mailto:advisory@hartwell.com">advisory@hartwell.com</a></p>
+      </div>
+    </aside>
+
+    <!-- Form Card -->
+    <div class="form-card">
+      <div class="form-header">
+        <span class="tag">Enquiry Form</span>
+        <h2>How Can We Assist You?</h2>
+      </div>
+
+      <!--
+        FORM: action redirects natively to thankyou.html via GET.
+        No JavaScript or AJAX is used for submission.
+        GTM can listen to the "gtm.formSubmit" trigger on this form.
+      -->
+      <form
+        id="lead-generation-form"
+        name="contact_us"
+        action="thankyou.html"
+        method="GET"
+      >
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="full_name">Full Name <span class="req">*</span></label>
+            <input
+              type="text"
+              id="full_name"
+              name="full_name"
+              placeholder="e.g. James Hartwell"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+1 (000) 000-0000"
+              autocomplete="tel"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@company.com"
+            required
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Interested In <span class="req">*</span></label>
+          <div class="select-wrap">
+            <select id="service" name="service" required>
+              <option value="" disabled selected>— Select a service —</option>
+              <option value="wealth_management">Wealth Management</option>
+              <option value="corporate_advisory">Corporate Advisory</option>
+              <option value="estate_planning">Estate Planning</option>
+              <option value="tax_strategy">Tax Strategy</option>
+              <option value="investment_research">Investment Research</option>
+              <option value="other">Other Enquiry</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="form-divider" />
+
+        <div class="submit-wrap">
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <p class="privacy-note">Your information is kept strictly<br />confidential. No spam, ever.</p>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-copy">&copy; 2026 Hartwell &amp; Associates. All rights reserved.</span>
+    <div class="footer-rule"></div>
+    <span class="footer-copy">Crafted for GTM Practice</span>
+  </footer>
+
+</body>
+</html>

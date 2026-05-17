@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Hartwell & Associates</title>
+
+  <!-- ============================================================
+    GTM CONTAINER SCRIPT — PASTE YOUR GTM HEAD SNIPPET BELOW
+    TIP: Fire your GA4 "form_submission" or "generate_lead" event
+         using a GTM Trigger set to "Page View" on this URL path.
+  ============================================================ -->
+  <!-- Google Tag Manager -->
+  <!-- (paste GTM <script> snippet here) -->
+  <!-- End Google Tag Manager -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1a2535;
+      --navy-mid:   #243244;
+      --slate:      #4a5568;
+      --gold:       #b8975a;
+      --gold-light: #d4b07a;
+      --cream:      #f7f4ef;
+      --off-white:  #fdfcfa;
+      --border:     #ddd6c8;
+      --muted:      #8a96a3;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', 'Helvetica Neue', sans-serif;
+
+      --radius: 2px;
+      --transition: 220ms ease;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      background-color: var(--cream);
+      color: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Header / Nav ───────────────────────────────────────── */
+    header {
+      background-color: var(--navy);
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.35rem;
+      color: var(--off-white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--gold); }
+
+    nav {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(253, 252, 250, 0.65);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    /* ── Page Wrapper ───────────────────────────────────────── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 100px;
+    }
+
+    /* ── Success Card ───────────────────────────────────────── */
+    .success-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      max-width: 580px;
+      width: 100%;
+      padding: 72px 64px 68px;
+      text-align: center;
+      position: relative;
+      animation: cardReveal 0.6s ease both;
+    }
+
+    @keyframes cardReveal {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Gold top accent */
+    .success-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 60%, var(--gold-light) 100%);
+    }
+
+    /* Decorative corner marks */
+    .success-card::after {
+      content: '';
+      position: absolute;
+      bottom: 20px; right: 20px;
+      width: 28px; height: 28px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Checkmark Icon ─────────────────────────────────────── */
+    .check-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 36px;
+      animation: checkPop 0.5s 0.3s ease both;
+    }
+
+    @keyframes checkPop {
+      from { transform: scale(0.7); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+
+    .check-icon {
+      width: 28px;
+      height: 28px;
+      stroke: var(--gold);
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: drawCheck 0.4s 0.7s ease forwards;
+    }
+
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* ── Typography ─────────────────────────────────────────── */
+    .eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      animation: fadeUp 0.5s 0.4s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 22px;
+      animation: fadeUp 0.5s 0.5s ease both;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .success-message {
+      font-size: 0.92rem;
+      color: var(--slate);
+      line-height: 1.8;
+      max-width: 400px;
+      margin: 0 auto 40px;
+      animation: fadeUp 0.5s 0.6s ease both;
+    }
+
+    /* ── Divider ────────────────────────────────────────────── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.5s 0.65s ease both;
+    }
+
+    .ornament-line {
+      width: 50px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .ornament-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ── What Happens Next ──────────────────────────────────── */
+    .next-steps {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 28px 32px;
+      margin-bottom: 44px;
+      text-align: left;
+      animation: fadeUp 0.5s 0.7s ease both;
+    }
+
+    .next-steps h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.83rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* ── CTA Button ─────────────────────────────────────────── */
+    .btn-return {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 15px 40px;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      animation: fadeUp 0.5s 0.8s ease both;
+    }
+
+    .btn-return:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-return:active { transform: translateY(1px); }
+
+    /* ── Reference Number ───────────────────────────────────── */
+    .ref-note {
+      margin-top: 24px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      animation: fadeUp 0.5s 0.85s ease both;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(253, 252, 250, 0.35);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      header { padding: 0 24px; }
+      nav { display: none; }
+      main { padding: 48px 16px 72px; }
+      .success-card { padding: 48px 28px 52px; }
+      .next-steps { padding: 24px 20px; }
+      footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+    GTM NOSCRIPT — PASTE YOUR GTM NOSCRIPT SNIPPET BELOW
+  ============================================================ -->
+  <!-- Google Tag Manager (noscript) -->
+  <!-- (paste GTM <noscript> snippet here) -->
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ── Header ──────────────────────────────────────────────── -->
+  <header>
+    <a href="contact.html" class="logo">Hartwell <span>&</span> Associates</a>
+    <nav>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ── Main ────────────────────────────────────────────────── -->
+  <main>
+    <div class="success-card">
+
+      <!-- Animated Checkmark -->
+      <div class="check-wrap">
+        <svg class="check-icon" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polyline points="5,14 11,20 23,8" />
+        </svg>
+      </div>
+
+      <p class="eyebrow">Submission Received</p>
+
+      <h1>Thank You for<br /><em>Reaching Out</em></h1>
+
+      <p class="success-message">
+        Thank you for your submission! Our team will review your enquiry and get back to you shortly — typically within one business day.
+      </p>
+
+      <!-- Ornamental divider -->
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line"></div>
+      </div>
+
+      <!-- What Happens Next -->
+      <div class="next-steps">
+        <h3>What Happens Next</h3>
+        <ul class="steps-list">
+          <li>
+            <span class="step-num">1</span>
+            A confirmation has been logged. A senior consultant will review your enquiry.
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            You will receive a direct reply to the email address provided within one business day.
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            We will schedule an introductory call at your convenience to discuss your requirements.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Return CTA -->
+      <a href="contact.html" class="btn-return">Return to Home</a>
+
+      <p class="ref-note">Questions? Call us at <strong>+1 (212) 555-0100</strong></p>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-copy">&copy; 2026 Hartwell &amp; Associates. All rights reserved.</span>
+    <div class="footer-rule"></div>
+    <span class="footer-copy">Crafted for GTM Practice</span>
+  </footer>
+
+</body>
+</html>
